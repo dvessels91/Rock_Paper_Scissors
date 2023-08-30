@@ -6,80 +6,61 @@ function getComputerChoice (strings) {
     return strings[randomNumber];
 }
 
-const myArray = ['Rock', 'Paper', 'Scissors'];
-const randomItem = getComputerChoice(myArray);
+const myArray = ['rock', 'paper', 'scissors'];
 
-
-//Function that plays single round of Rock Paper Scissor
-
-/*function singleRound (playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return "Tie!";
-    }  else if (
-        (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
-        (playerSelection === 'Scissors' && computerSelection === 'Paper') ||
-        (playerSelection === 'Paper' && computerSelection === 'Rock')
-    ) {
-        return "Winner!";
-    } else {
-        return "Loser!";
-    }
-} 
-
-const playerSelection = 'Rock'; console.log(playerSelection);
-const computerSelection = getComputerChoice (myArray); console.log(computerSelection);
-
-console.log(singleRound (playerSelection, computerSelection))*/
-
-/*
-Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game 
-that keeps score and reports a winner or loser at the end.
-*/
+//Function that plays Rock Paper Scissor
 
 function game () {
     
-    let playerScore = 0;
+    let playerScore = 0; 
     let computerScore = 0;   
+    let tieScore = 0;
     
     for (let i = 1; i <= 5 ; i++) {
+        
+        let playerSelection = prompt(`Round ${i}: What's your choice?`).toLowerCase(); console.log(playerSelection);
+        let computerSelection = getComputerChoice(myArray).toLowerCase(); console.log(computerSelection);
+                
         function singleRound (playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
-                return "Tie!";
-            }  else if (
-                (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
-                (playerSelection === 'Scissors' && computerSelection === 'Paper') ||
-                (playerSelection === 'Paper' && computerSelection === 'Rock')
+                return "Tie";
+            } else if (
+                (playerSelection === 'rock' && computerSelection === 'scissors') ||
+                (playerSelection === 'scissors' && computerSelection === 'paper') ||
+                (playerSelection === 'paper' && computerSelection === 'rock')
             ) {
                 return "Player";
             } else {
                 return "Computer";
             }
-        } 
+        }
+                
         
-        let playerSelection = prompt(`Round ${i}: What's your choice?`); console.log(playerSelection);
-        let computerSelection = getComputerChoice (myArray); console.log(computerSelection);
-        
-        console.log(singleRound (playerSelection, computerSelection))
+        console.log(singleRound (playerSelection, computerSelection)) //Runs the function
 
         //Defining a variable in order to keep a scoresheet
 
-        let roundResult = singleRound(playerSelection, computerSelection);
+        let roundResult = singleRound (playerSelection, computerSelection);
 
         if (roundResult === "Player") {
-            playerScore++
+            playerScore++;
         } else if (roundResult === "Computer") {
-            computerScore++
-        };
+            computerScore++;
+        } else {
+            tieScore++;
+        }
 
         console.log(`Round ${i}: ${roundResult} wins.`);
     }
 
     if (playerScore > computerScore) {
-        alert(`Player wins the entire game`)
+        alert(`Player wins the entire game`);
     } else if (playerScore < computerScore) { 
-        alert(`Computer wins the entire game`)
+        alert(`Computer wins the entire game`);
+    } else {
+        alert(`It's a tie game`);
     }
-    
+
 }
 
 console.log(game())
