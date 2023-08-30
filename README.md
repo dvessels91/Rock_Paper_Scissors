@@ -23,3 +23,11 @@ At this point you should be using console.log() to display the results of each r
 Use prompt() to get input from the user. Read the docs here if you need to.
 Feel free to re-work your previous functions if you need to. Specifically, you might want to change the return value to something more useful.
 Feel free to create more “helper” functions if you think it would be useful.
+
+
+
+Planning Stages
+1. Create function called getComputerChoice.
+2. Inside function - random generation of 1 of 3 possible strings: Rock, Paper, Scissors.
+    2a. Create random integer function: Math.floor(Math.random() * 4)
+    2b. Connect potential random #'s to random string's Eg. (0 -> Rock; 1 -> Paper; 2 -> Scissors)
